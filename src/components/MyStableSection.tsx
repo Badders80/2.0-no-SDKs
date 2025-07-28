@@ -21,7 +21,7 @@ export default function MyStableSection() {
           href="/mystable"
           className="inline-flex items-center border border-gold text-gold px-6 py-2 text-sm tracking-wide hover:bg-gold hover:text-black transition"
         >
-          Enter MyStable Central
+          Enter MyStable
           <span className="ml-3 text-xl">›</span>
         </a>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../assets/logo.svg';
+import logo from '../assets/2.png';
 
 /**
  * The navigation bar appears at the top of every page. It uses a dark
@@ -15,15 +15,24 @@ export default function Navbar() {
     <nav className="fixed top-0 inset-x-0 z-50 bg-black border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         {/* Logo */}
-        <a href="/" className="flex items-center space-x-2">
-          <img src={logo} alt="Evolution Stables" className="h-6 w-auto opacity-60" />
-        </a>
+        <button
+          className="flex items-center space-x-2 focus:outline-none bg-transparent border-none p-0 m-0"
+          onClick={() => {
+            if (window.location.pathname !== '/') {
+              window.location.href = '/';
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+        >
+          <img src={logo} alt="Evolution Stables Logo" className="h-6 w-auto opacity-60" />
+        </button>
         {/* Desktop navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#mission" className="hover:text-gold transition-colors">Our Mission</a>
-          <a href="#about" className="hover:text-gold transition-colors">About</a>
-          <a href="#innovation" className="hover:text-gold transition-colors">Innovation</a>
-          <a href="#mystable" className="hover:text-gold transition-colors">MyStable</a>
+          <a href="/#mission" className="hover:text-gold transition-colors">Our Mission</a>
+          <a href="/#about" className="hover:text-gold transition-colors">About</a>
+          <a href="/#innovation" className="hover:text-gold transition-colors">Innovation</a>
+          <a href="/#mystable" className="hover:text-gold transition-colors">MyStable</a>
         </div>
         <div className="hidden md:flex items-center space-x-6">
           <a href="#signin" className="hover:text-gold transition-colors text-sm">SIGN IN</a>
@@ -52,16 +61,16 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {open && (
         <div className="md:hidden px-4 pb-4 space-y-2 bg-black border-b border-gray-800">
-          <a href="#mission" className="block" onClick={() => setOpen(false)}>
+          <a href="/#mission" className="block" onClick={() => setOpen(false)}>
             Our Mission
           </a>
-          <a href="#about" className="block" onClick={() => setOpen(false)}>
+          <a href="/#about" className="block" onClick={() => setOpen(false)}>
             About
           </a>
-          <a href="#innovation" className="block" onClick={() => setOpen(false)}>
+          <a href="/#innovation" className="block" onClick={() => setOpen(false)}>
             Innovation
           </a>
-          <a href="#mystable" className="block" onClick={() => setOpen(false)}>
+          <a href="/#mystable" className="block" onClick={() => setOpen(false)}>
             MyStable
           </a>
           <a href="#signin" className="block" onClick={() => setOpen(false)}>

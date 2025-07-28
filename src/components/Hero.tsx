@@ -1,6 +1,6 @@
 import React from 'react';
-import heroBg from '../assets/hero-horses.png';
-import goldLogo from '../assets/gold-logo.svg';
+import heroBg from '../assets/Horse-Double-Black.png';
+import evolutionText from '../assets/Copy of Evolution Brand Kit (11 x 4 in).png';
 
 /**
  * Full‑screen hero section with a darkened background image and
@@ -14,10 +14,14 @@ export default function Hero() {
       style={{ backgroundImage: `url(${heroBg})` }}
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      {/* Logo */}
-      <div className="relative z-10 text-center">
-        <img src={goldLogo} alt="Evolution Stables" className="w-56 h-auto mx-auto" />
+      <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
+      {/* Centered Evolution Stables Text Image */}
+      <div className="relative z-10 flex items-center justify-center w-full">
+        <img 
+          src={evolutionText} 
+          alt="EVOLUTION STABLES" 
+          className="w-[420px] max-w-full h-auto mx-auto drop-shadow-lg"
+        />
       </div>
     </section>
   );
