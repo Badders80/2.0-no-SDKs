@@ -10,10 +10,10 @@ export const FutureverseAuthProvider = ({ children }: { children: React.ReactNod
   return <>{children}</>;
 };
 
-export const LoginButton = ({ label = 'Log In', children }: { label?: string; children?: React.ReactNode }) => {
+export const LoginButton = () => {
   return (
     <button className="px-4 py-2 border border-white text-white rounded hover:bg-white hover:text-black">
-      {label || children}
+      Log In
     </button>
   );
 };
