@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import { LoginButton, useAuth } from '../components/FutureverseAuthProvider';
+import { LoginButton } from '../components/FutureverseAuthProvider';
+import { useAuth } from '../auth/useAuth';
 import { useAccount, useBalance } from 'wagmi';
 import { formatEther } from 'viem';
 import { Card, Button, Typography, Avatar } from '@futureverse/auth-ui';

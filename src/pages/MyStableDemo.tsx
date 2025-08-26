@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../components/FutureverseAuthProvider';
+import { useAuth } from '../auth/useAuth';
 import { useAccount, useBalance } from 'wagmi';
 import { formatEther } from 'viem';
 
