@@ -19,9 +19,11 @@ export default function MyStableSection() {
           Manage your ownership, monitor your assets, and stay connected — simply, securely, and all in one spot.
         </p>
         <div className="inline-block">
-          <LoginButton
-            label="Enter MyStable"
-          />
+          <a href="/mystable">
+            <LoginButton
+              label="Enter MyStable"
+            />
+          </a>
         </div>
       </div>
     </section>
