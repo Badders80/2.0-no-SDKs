@@ -1,7 +1,8 @@
 import React from 'react';
 import Home from './pages/Home';
 import MyStable from './pages/MyStable';
-import { FutureverseAuthWrapper } from './components/FutureverseAuthProvider';
+import { FutureverseAuthProvider } from './components/FutureverseAuthProvider';
+const USE_AUTH = import.meta.env.VITE_USE_AUTH === 'true';
 
 /**
  * Simple router based on pathname. When visiting `/mystable` the
@@ -12,8 +13,18 @@ export default function App() {
   const path = window.location.pathname.toLowerCase();
   
   return (
-    <FutureverseAuthWrapper>
-      {path.includes('mystable') ? <MyStable /> : <Home />}
-    </FutureverseAuthWrapper>
+    <>
+      {/* <PrivyProvider clientId="..."> */}
+      <MainLayout />
+      {/* </PrivyProvider> */}
+    </>
+  );
+  const app = <MainLayout />;
+  return USE_AUTH ? (
+    <FutureverseAuthProvider clientId={import.meta.env.VITE_CLIENT_ID} redirectUri={import.meta.env.VITE_REDIRECT_URI}>
+      {app}
+    </FutureverseAuthProvider>
+  ) : (
+    app
   );
 }
