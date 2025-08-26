@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import { LoginButton } from '../components/FutureverseAuthProvider';
-import { useAuth } from '../auth/useAuth';
-import { useAccount, useBalance } from 'wagmi';
-import { formatEther } from 'viem';
-import { Card, Button, Typography, Avatar } from '@futureverse/auth-ui';
 
-/**
- * Enhanced MyStable Dashboard - Shows portfolio data with Tokinvest integration
- * All trading functionality redirects to Tokinvest platform
- */
 function MyStableContent() {
-  const { userSession } = useAuth();
-  const { address, isConnected } = useAccount();
-  const { data: balance } = useBalance({ address });
-  
+  // Mock userSession so dashboard always shows
+  const userSession = {
+    user: { profile: { name: 'Guest User' } },
+    eoa: '0x1234567890abcdef',
+  };
+  const address = '0xabcdef1234567890';
+  const isConnected = true;
+  const balance = 1.2345;
+
   // Get Futureverse wallet info from userSession
   const futureverseAddress = userSession?.eoa; // Externally Owned Account
   const futureverseConnected = !!userSession?.eoa;
-  
+
   // Use Futureverse wallet if available, fallback to external wallet
   const displayAddress = futureverseAddress || address;
   const displayConnected = futureverseConnected || isConnected;
-  
+
   // Portfolio data for demo (replace with Tokinvest API calls)
   const [portfolioData, setPortfolioData] = useState({
     totalValue: '$2,847',
@@ -60,7 +56,7 @@ function MyStableContent() {
   });
 
   // Market opportunities data
-  const [marketData, setMarketData] = useState({
+  const [marketData] = useState({
     availableShares: [
       { horse: 'Thunder Strike', price: '$580', available: '2.5%', trend: 'up' },
       { horse: 'Golden Flash', price: '$920', available: '1.8%', trend: 'stable' },
@@ -88,62 +84,15 @@ function MyStableContent() {
     window.open('https://tokinvest.capital/investors', '_blank');
   };
 
-  if (!userSession) {
-    return (
-      <div className="bg-black text-white min-h-screen flex flex-col items-center justify-center">
-        <Navbar />
-        <div className="mt-32 text-center">
-          <h2 className="text-2xl font-bold mb-4">Sign in to access MyStable</h2>
-          <p className="text-gray-400 mb-6">Connect your wallet to view your horse portfolio</p>
-          <LoginButton label="Enter MyStable" />
-        </div>
-      </div>
-    );
-  }
   return (
     <div className="bg-black text-white min-h-screen">
       <Navbar />
       
       <div className="pt-24 px-6 md:px-20 max-w-7xl mx-auto">
-        {/* Header with user and wallet info */}
+        <h1 className="text-4xl font-bold mb-2">Your Stable</h1>
+        <p className="text-gray-400">Welcome back, Guest User</p>
         <div className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center">
           <div>
-            <h1 className="text-4xl font-bold mb-2">Your Stable</h1>
-            <p className="text-gray-400">
-              Welcome back, {(() => {
-                const profile = userSession.user?.profile as any;
-                
-                // Try different name fields in order of preference
-                if (profile?.name && typeof profile.name === 'string') {
-                  return profile.name;
-                } else if (profile?.displayName && typeof profile.displayName === 'string') {
-                  return profile.displayName;
-                } else if (profile?.given_name && typeof profile.given_name === 'string') {
-                  return profile.given_name;
-                } else if (profile?.firstName && typeof profile.firstName === 'string') {
-                  return profile.firstName;
-                } else if (profile?.given_name && profile?.family_name && 
-                          typeof profile.given_name === 'string' && typeof profile.family_name === 'string') {
-                  return `${profile.given_name} ${profile.family_name}`.trim();
-                } else if (profile?.firstName && profile?.lastName && 
-                          typeof profile.firstName === 'string' && typeof profile.lastName === 'string') {
-                  return `${profile.firstName} ${profile.lastName}`.trim();
-                } else if (profile?.email && typeof profile.email === 'string') {
-                  // Extract a friendly name from email
-                  const emailPart = profile.email.split('@')[0];
-                  if (emailPart.includes('.')) {
-                    return emailPart.split('.').map((part: string) => 
-                      part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()
-                    ).join(' ');
-                  } else {
-                    return emailPart.charAt(0).toUpperCase() + emailPart.slice(1).toLowerCase();
-                  }
-                }
-                return 'User';
-              })()}
-            </p>
-          </div>
-          <div className="mt-4 md:mt-0 text-left md:text-right">
             <p className="text-sm text-gray-400">
               {displayConnected ? 'Wallet Connected' : 'Wallet Not Connected'}
             </p>
@@ -151,136 +100,137 @@ function MyStableContent() {
               {displayAddress ? `${displayAddress.slice(0, 8)}...${displayAddress.slice(-6)}` : 'Not connected'}
             </p>
             <p className="text-sm">
-              {balance ? `${parseFloat(formatEther(balance.value)).toFixed(4)} ETH` : 
-               displayConnected ? 'Futureverse Wallet' : '--'}
+              {balance ? `${balance} ETH` : displayConnected ? 'Futureverse Wallet' : '--'}
             </p>
           </div>
         </div>
 
         {/* Portfolio Overview */}
-        <Card style={{ backgroundColor: '#1f2937', border: '1px solid #374151', marginBottom: '2rem' }}>
-          <div style={{ padding: '1.5rem' }}>
-            <Typography style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'white', marginBottom: '1.5rem' }}>
-              Portfolio Overview
-            </Typography>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <Typography style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>Total Value</Typography>
-                <Typography style={{ fontSize: '1.875rem', fontWeight: 'bold', color: '#d4a964' }}>
-                  {portfolioData.totalValue}
-                </Typography>
+        <div style={{ backgroundColor: '#1f2937', border: '1px solid #374151', marginBottom: '2rem', padding: '1.5rem', borderRadius: '0.5rem' }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>Total Value</div>
+              <div style={{ fontSize: '1.875rem', fontWeight: 'bold', color: '#d4a964' }}>
+                {portfolioData.totalValue}
               </div>
-              <div className="text-center">
-                <Typography style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>Total Return</Typography>
-                <Typography style={{ 
-                  fontSize: '1.5rem', 
-                  fontWeight: 'bold', 
-                  color: portfolioData.totalReturn.startsWith('+') ? '#10b981' : '#ef4444' 
-                }}>
-                  {portfolioData.totalReturn}
-                </Typography>
+            </div>
+            <div className="text-center">
+              <div style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>Total Return</div>
+              <div style={{ 
+                fontSize: '1.5rem', 
+                fontWeight: 'bold', 
+                color: portfolioData.totalReturn.startsWith('+') ? '#10b981' : '#ef4444' 
+              }}>
+                {portfolioData.totalReturn}
               </div>
-              <div className="text-center">
-                <Typography style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>Total Ownership</Typography>
-                <Typography style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'white' }}>
-                  {portfolioData.totalShares}
-                </Typography>
+            </div>
+            <div className="text-center">
+              <div style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>Total Ownership</div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'white' }}>
+                {portfolioData.totalShares}
               </div>
-              <div className="text-center">
-                <Typography style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>Horses Owned</Typography>
-                <Typography style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'white' }}>
-                  {portfolioData.holdings.length}
-                </Typography>
+            </div>
+            <div className="text-center">
+              <div style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>Horses Owned</div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'white' }}>
+                {portfolioData.holdings.length}
               </div>
             </div>
           </div>
-        </Card>
+        </div>
 
         {/* Your Horses */}
         <div className="mb-8">
-          <Typography style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'white', marginBottom: '1.5rem' }}>
+          <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'white', marginBottom: '1.5rem' }}>
             Your Horses
-          </Typography>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {portfolioData.holdings.map((horse, index) => (
-              <Card key={index} style={{ 
+              <div key={index} style={{ 
                 backgroundColor: '#1f2937', 
-                border: '1px solid #374151',
-                transition: 'background-color 0.3s',
-                cursor: 'pointer'
+                border: '1px solid #374151', 
+                borderRadius: '0.5rem', 
+                transition: 'background-color 0.3s', 
+                cursor: 'pointer', 
+                padding: '1.5rem' 
               }}>
-                <div style={{ padding: '1.5rem' }}>
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <Typography style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'white' }}>
-                        {horse.horse}
-                      </Typography>
-                      <Typography style={{ color: '#9ca3af' }}>
-                        Trainer: {horse.trainer}
-                      </Typography>
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'white' }}>
+                      {horse.horse}
                     </div>
-                    <div className={`w-3 h-3 rounded-full ${
-                      horse.status === 'winning' ? 'bg-green-400' : 
-                      horse.status === 'rising' ? 'bg-yellow-400' : 'bg-blue-400'
-                    }`}></div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <Typography style={{ color: '#9ca3af' }}>Ownership</Typography>
-                      <Typography style={{ fontWeight: 'bold', color: 'white' }}>{horse.owned}</Typography>
-                    </div>
-                    <div className="flex justify-between">
-                      <Typography style={{ color: '#9ca3af' }}>Value</Typography>
-                      <Typography style={{ fontWeight: 'bold', color: 'white' }}>{horse.value}</Typography>
-                    </div>
-                    <div className="flex justify-between">
-                      <Typography style={{ color: '#9ca3af' }}>24h Change</Typography>
-                      <Typography style={{ 
-                        fontWeight: 'bold', 
-                        color: horse.change.startsWith('+') ? '#10b981' : '#ef4444' 
-                      }}>
-                        {horse.change}
-                      </Typography>
-                    </div>
-                    <div className="flex justify-between">
-                      <Typography style={{ color: '#9ca3af' }}>Next Race</Typography>
-                      <Typography style={{ color: 'white' }}>{horse.nextRace}</Typography>
+                    <div style={{ color: '#9ca3af' }}>
+                      Trainer: {horse.trainer}
                     </div>
                   </div>
-
-                  {/* Tokinvest Integration */}
-                  <div className="mt-4 pt-4 border-t border-gray-700">
-                    <Typography style={{ fontSize: '0.75rem', color: '#9ca3af', marginBottom: '0.5rem' }}>
-                      Manage via Tokinvest
-                    </Typography>
-                    <div className="flex gap-2">
-                      <Button 
-                        variant="primary"
-                        onClick={openTokinvest}
-                        style={{ 
-                          flex: 1, 
-                          backgroundColor: '#d4a964', 
-                          color: 'black',
-                          fontSize: '0.875rem'
-                        }}
-                      >
-                        View Details
-                      </Button>
-                      <Button 
-                        variant="secondary"
-                        onClick={openTokinvest}
-                        style={{ 
-                          flex: 1,
-                          fontSize: '0.875rem'
-                        }}
-                      >
-                        Trade
-                      </Button>
+                  <div className={`w-3 h-3 rounded-full ${
+                    horse.status === 'winning' ? 'bg-green-400' : 
+                    horse.status === 'rising' ? 'bg-yellow-400' : 'bg-blue-400'
+                  }`}></div>
+                </div>
+                
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <div style={{ color: '#9ca3af' }}>Ownership</div>
+                    <div style={{ fontWeight: 'bold', color: 'white' }}>{horse.owned}</div>
+                  </div>
+                  <div className="flex justify-between">
+                    <div style={{ color: '#9ca3af' }}>Value</div>
+                    <div style={{ fontWeight: 'bold', color: 'white' }}>{horse.value}</div>
+                  </div>
+                  <div className="flex justify-between">
+                    <div style={{ color: '#9ca3af' }}>24h Change</div>
+                    <div style={{ 
+                      fontWeight: 'bold', 
+                      color: horse.change.startsWith('+') ? '#10b981' : '#ef4444' 
+                    }}>
+                      {horse.change}
                     </div>
+                  </div>
+                  <div className="flex justify-between">
+                    <div style={{ color: '#9ca3af' }}>Next Race</div>
+                    <div style={{ color: 'white' }}>{horse.nextRace}</div>
                   </div>
                 </div>
-              </Card>
+
+                {/* Tokinvest Integration */}
+                <div className="mt-4 pt-4 border-t border-gray-700">
+                  <div style={{ fontSize: '0.75rem', color: '#9ca3af', marginBottom: '0.5rem' }}>
+                    Manage via Tokinvest
+                  </div>
+                  <div className="flex gap-2">
+                    <button 
+                      onClick={openTokinvest}
+                      style={{ 
+                        flex: 1, 
+                        backgroundColor: '#d4a964', 
+                        color: 'black', 
+                        fontSize: '0.875rem', 
+                        padding: '0.5rem', 
+                        borderRadius: '0.25rem', 
+                        fontWeight: 'bold', 
+                        border: 'none' 
+                      }}
+                    >
+                      View Details
+                    </button>
+                    <button 
+                      onClick={openTokinvest}
+                      style={{ 
+                        flex: 1, 
+                        fontSize: '0.875rem', 
+                        padding: '0.5rem', 
+                        borderRadius: '0.25rem', 
+                        border: '1px solid #374151', 
+                        backgroundColor: '#1f2937', 
+                        color: 'white' 
+                      }}
+                    >
+                      Trade
+                    </button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -347,32 +297,34 @@ function MyStableContent() {
         </div>
 
         {/* Tokinvest CTA */}
-        <Card style={{ 
+        <div style={{ 
           background: 'linear-gradient(to right, rgba(212, 169, 100, 0.2), rgba(234, 179, 8, 0.2))',
           border: '1px solid rgba(212, 169, 100, 0.3)',
-          marginBottom: '2rem'
+          marginBottom: '2rem',
+          borderRadius: '0.5rem',
+          padding: '1.5rem',
+          textAlign: 'center' 
         }}>
-          <div style={{ padding: '1.5rem', textAlign: 'center' }}>
-            <Typography style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'white', marginBottom: '0.5rem' }}>
-              Ready to Trade?
-            </Typography>
-            <Typography style={{ color: '#d1d5db', marginBottom: '1rem' }}>
-              Buy and sell horse shares with our tokenization partner Tokinvest
-            </Typography>
-            <Button 
-              variant="primary"
-              onClick={openTokinvest}
-              style={{ 
-                backgroundColor: '#d4a964', 
-                color: 'black',
-                padding: '0.75rem 1.5rem',
-                fontWeight: 'bold'
-              }}
-            >
-              Open Tokinvest Platform
-            </Button>
+          <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'white', marginBottom: '0.5rem' }}>
+            Ready to Trade?
           </div>
-        </Card>
+          <div style={{ color: '#d1d5db', marginBottom: '1rem' }}>
+            Buy and sell horse shares with our tokenization partner Tokinvest
+          </div>
+          <button 
+            onClick={openTokinvest}
+            style={{ 
+              backgroundColor: '#d4a964', 
+              color: 'black', 
+              padding: '0.75rem 1.5rem', 
+              fontWeight: 'bold', 
+              borderRadius: '0.25rem', 
+              border: 'none' 
+            }}
+          >
+            Open Tokinvest Platform
+          </button>
+        </div>
       </div>
     </div>
   );
