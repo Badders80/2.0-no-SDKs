@@ -1,30 +1,17 @@
 import React from 'react';
-import Home from './pages/Home';
-import MyStable from './pages/MyStable';
 import { FutureverseAuthProvider } from './components/FutureverseAuthProvider';
-const USE_AUTH = import.meta.env.VITE_USE_AUTH === 'true';
+import MainLayout from './layout/MainLayout';
 
-/**
- * Simple router based on pathname. When visiting `/mystable` the
- * MyStable dashboard is rendered, otherwise the landing page.
- * Now wrapped with Futureverse auth providers.
- */
-export default function App() {
-  const path = window.location.pathname.toLowerCase();
-  
-  return (
-    <>
-      {/* <PrivyProvider clientId="..."> */}
-      <MainLayout />
-      {/* </PrivyProvider> */}
-    </>
-  );
-  const app = <MainLayout />;
+const USE_AUTH = false;
+
+const App = () => {
+  const content = <MainLayout />;
+
   return USE_AUTH ? (
-    <FutureverseAuthProvider clientId={import.meta.env.VITE_CLIENT_ID} redirectUri={import.meta.env.VITE_REDIRECT_URI}>
-      {app}
-    </FutureverseAuthProvider>
+    <FutureverseAuthProvider>{content}</FutureverseAuthProvider>
   ) : (
-    app
+    content
   );
-}
+};
+
+export default App;
