@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../assets/2.png';
-import { LoginButton, useAuth } from './FutureverseAuthProvider';
+import { LoginButton } from './FutureverseAuthProvider';
+import { useAuth } from '../auth/useAuth';
 
 /**
  * The navigation bar appears at the top of every page. It uses a dark
