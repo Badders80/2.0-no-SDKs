@@ -9,6 +9,7 @@ import DigitalSyndication from '../components/DigitalSyndication';
 import MidImageSection3 from '../components/MidImageSection3';
 import MyStableSection from '../components/MyStableSection';
 import FinalImageSection from '../components/FinalImageSection';
+import Footer from '../components/Footer';
 
 /**
  * The landing page for Evolution Stables. This page is composed of
@@ -30,6 +31,7 @@ export default function Home() {
       <MidImageSection3 />
       <MyStableSection />
       <FinalImageSection />
+      <Footer />
     </div>
   );
 }
