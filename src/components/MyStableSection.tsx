@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginButton } from './FutureverseAuthProvider';
+import LoginButton from './LoginButton';
 
 /**
  * Closing call‑to‑action inviting users to access the MyStable

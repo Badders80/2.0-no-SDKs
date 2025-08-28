@@ -1,3 +1,6 @@
+﻿packages:
+  - '.'
+
 onlyBuiltDependencies:
   - bufferutil
   - es5-ext

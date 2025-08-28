@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../assets/2.png';
-import { LoginButton } from './FutureverseAuthProvider';
+import LoginButton from './LoginButton';
 import { useAuth } from '../auth/useAuth';
 
 /**

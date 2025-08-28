@@ -3,7 +3,8 @@ import { FutureverseAuthProvider } from './components/FutureverseAuthProvider';
 import MainLayout from './layout/MainLayout';
 import MyStable from './pages/MyStable';
 
-const USE_AUTH = false;
+// Use environment variable instead of hardcoded value
+const USE_AUTH = import.meta.env.VITE_USE_AUTH === 'true';
 
 const App = () => {
   const path = window.location.pathname.toLowerCase();

@@ -1,5 +1,5 @@
 import React from 'react';
-import Hero from '@/sections/Hero/Hero';
+import Hero from '@/components/Hero';
 import SectionMission from '@/sections/Mission/SectionMission';
 import SectionAbout from '@/sections/About/SectionAbout';
 import SectionInnovation from '@/sections/Innovation/SectionInnovation';
