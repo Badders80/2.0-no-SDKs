@@ -1,15 +1,26 @@
 ﻿import React from "react";
 import { Linkedin, Twitter, Instagram } from "lucide-react"; // or your preferred icon set
+import authorisedSyndicatorLogo from '../assets/Logo-Authorised-syndicator.png';
+import wed3nzFinalistLogo from '../assets/Logo-wed3nz-finalist.png';
+import ImageWithFallback from './ImageWithFallback';
 
 export default function Footer() {
   return (
     <footer className="bg-black text-gray-400 py-10 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
-        
+
         {/* Credibility badges */}
         <div className="flex gap-6 items-center">
-          <img src="../assets/Logo-Authorised-syndicator.png" alt="NZTR Authorised Syndicator" className="h-12 object-contain" />
-          <img src="../assets/Logo-wed3nz-finalist.png" alt="Innovative Solution Finalist" className="h-12 object-contain" />
+          <ImageWithFallback
+            src={authorisedSyndicatorLogo}
+            alt="NZTR Authorised Syndicator"
+            className="h-12 object-contain"
+          />
+          <ImageWithFallback
+            src={wed3nzFinalistLogo}
+            alt="Innovative Solution Finalist"
+            className="h-12 object-contain"
+          />
         </div>
 
         {/* Socials */}
