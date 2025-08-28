@@ -6,8 +6,8 @@ import ImageWithFallback from './ImageWithFallback';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white border-t border-neutral-800 h-[400px] md:h-[500px] flex flex-col px-6 md:px-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 text-sm flex-1 items-center">
+    <footer className="bg-black text-white border-t border-neutral-800 pt-36 pb-54 px-6 md:px-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 text-sm">
 
         {/* Brand */}
         <div>
@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-neutral-800 pt-4 pb-4 text-center text-xs text-gray-500">
+      <div className="mt-10 border-t border-neutral-800 pt-6 text-center text-xs text-gray-500">
         &copy; {new Date().getFullYear()} Evolution Stables. All rights reserved.
       </div>
     </footer>
