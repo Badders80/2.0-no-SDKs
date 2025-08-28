@@ -5,6 +5,7 @@ import SectionAbout from '@/sections/About/SectionAbout';
 import SectionInnovation from '@/sections/Innovation/SectionInnovation';
 import SectionMyStable from '@/sections/MyStablePreview/SectionMyStable';
 import ParallaxSection from '@/components/ParallaxSection';
+import Footer from '@/components/Footer';
 
 import midImage1 from '@/assets/horse-mid1.jpg';
 import midImage2 from '@/assets/horse-mid2.jpg';
@@ -16,15 +17,16 @@ export default function LandingPage() {
       <Hero />
       
       <SectionMission />
-      <ParallaxSection imageUrl={midImage1} alt="Close-up horse motion" />
+      <ParallaxSection backgroundImage={midImage1} alt="Close-up horse motion" />
 
       <SectionAbout />
-      <ParallaxSection imageUrl={midImage2} alt="Horse grazing on plain" />
+      <ParallaxSection backgroundImage={midImage2} alt="Horse grazing on plain" />
 
       <SectionInnovation />
-      <ParallaxSection imageUrl={midImage3} alt="Horse hooves on soil" />
+      <ParallaxSection backgroundImage={midImage3} alt="Horse hooves on soil" />
 
       <SectionMyStable />
+      <Footer />
     </div>
   );
 }

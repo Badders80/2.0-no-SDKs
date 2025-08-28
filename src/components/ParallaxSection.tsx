@@ -1,26 +1,30 @@
 import React from 'react';
 
-type Props = {
-  imageUrl: string;
+interface ParallaxSectionProps {
+  backgroundImage: string;
   alt?: string;
-  height?: string; // e.g., "80vh"
-};
+  height?: string; // e.g., "75vh"
+  children?: React.ReactNode;
+}
 
-const ParallaxSection: React.FC<Props> = ({
-  imageUrl,
-  alt = 'Parallax background',
-  height = '80vh',
-}) => {
+export default function ParallaxSection({
+  backgroundImage,
+  alt = '',
+  height = '75vh',
+  children,
+}: ParallaxSectionProps) {
   return (
     <section
-      className={`w-full bg-fixed bg-center bg-cover`}
+      className="w-full bg-fixed bg-center bg-cover flex items-center justify-center"
       style={{
-        backgroundImage: `url(${imageUrl})`,
+        backgroundImage: `url(${backgroundImage})`,
         height,
       }}
       aria-label={alt}
-    />
+    >
+      <div className="z-10 text-white text-center px-4">
+        {children}
+      </div>
+    </section>
   );
-};
-
-export default ParallaxSection;
+}
