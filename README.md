@@ -1,5 +1,7 @@
 # Evolution Stables - Digital Horse Racing Syndication Platform
 
+![CI](https://github.com/Badders80/2.0-no-SDKs/actions/workflows/ci.yml/badge.svg)
+
 A modern web application enabling digital ownership and syndication of racehorses through blockchain technology.
 
 ## Project Overview
