@@ -32,7 +32,7 @@ export default function Navbar() {
         </button>
         {/* Desktop navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <button 
+          <button
             className="hover:text-gold transition-colors bg-transparent border-none text-white cursor-pointer"
             onClick={() => {
               window.location.replace('/#mission');
@@ -40,7 +40,7 @@ export default function Navbar() {
           >
             Our Mission
           </button>
-          <button 
+          <button
             className="hover:text-gold transition-colors bg-transparent border-none text-white cursor-pointer"
             onClick={() => {
               window.location.replace('/#about');
@@ -48,7 +48,7 @@ export default function Navbar() {
           >
             About
           </button>
-          <button 
+          <button
             className="hover:text-gold transition-colors bg-transparent border-none text-white cursor-pointer"
             onClick={() => {
               window.location.replace('/#innovation');
@@ -61,7 +61,9 @@ export default function Navbar() {
               <span className="hover:text-gold transition-colors">MyStable</span>
             </LoginButton>
           ) : (
-            <a href="/mystable" className="hover:text-gold transition-colors">MyStable</a>
+            <a href="/mystable" className="hover:text-gold transition-colors">
+              MyStable
+            </a>
           )}
         </div>
         <div className="hidden md:flex items-center space-x-6">
@@ -77,7 +79,7 @@ export default function Navbar() {
         {/* Mobile burger */}
         <button
           className="md:hidden text-white focus:outline-none"
-          onClick={() => setOpen((o) => !o)}
+          onClick={() => setOpen(o => !o)}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -92,7 +94,7 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {open && (
         <div className="md:hidden px-4 pb-4 space-y-2 bg-black border-b border-gray-800">
-          <button 
+          <button
             className="block text-left bg-transparent border-none text-white cursor-pointer w-full"
             onClick={() => {
               setOpen(false);
@@ -101,7 +103,7 @@ export default function Navbar() {
           >
             Our Mission
           </button>
-          <button 
+          <button
             className="block text-left bg-transparent border-none text-white cursor-pointer w-full"
             onClick={() => {
               setOpen(false);
@@ -110,7 +112,7 @@ export default function Navbar() {
           >
             About
           </button>
-          <button 
+          <button
             className="block text-left bg-transparent border-none text-white cursor-pointer w-full"
             onClick={() => {
               setOpen(false);

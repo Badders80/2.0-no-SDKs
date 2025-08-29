@@ -26,7 +26,9 @@ export default function TabbedSection({ tabs }: Props) {
             onClick={() => setActive(idx)}
             className={
               'pb-2 text-sm font-medium ' +
-              (active === idx ? 'border-b-2 border-gold text-gold' : 'text-graytext hover:text-gold')
+              (active === idx
+                ? 'border-b-2 border-gold text-gold'
+                : 'text-graytext hover:text-gold')
             }
           >
             {tab.label}
@@ -35,7 +37,7 @@ export default function TabbedSection({ tabs }: Props) {
       </div>
       {/* Tab content */}
       <ul className="space-y-2 text-sm">
-        {tabs[active].items.map((item) => (
+        {tabs[active].items.map(item => (
           <li key={item} className="text-graytext">
             {item}
           </li>

@@ -18,37 +18,48 @@ export default function DigitalSyndication() {
           The modern way to experience ownership — for investors and everyday owners.
         </p>
         <p className="text-graytext text-lg mb-16 max-w-4xl">
-          By tokenising ownership into accessible shares, we’ve created a modern evolution of racing’s age-old tradition — syndication. Each digital share represents a stake in a real-world racehorse, connecting your investment directly to its performance.
+          By tokenising ownership into accessible shares, we’ve created a modern evolution of
+          racing’s age-old tradition — syndication. Each digital share represents a stake in a
+          real-world racehorse, connecting your investment directly to its performance.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Fractional Ownership */}
           <div>
             <div className="mb-4">
-              <div className="w-6 h-6 bg-gold rounded-full flex items-center justify-center text-black text-sm font-bold">●</div>
+              <div className="w-6 h-6 bg-gold rounded-full flex items-center justify-center text-black text-sm font-bold">
+                ●
+              </div>
             </div>
             <h3 className="text-xl font-semibold mb-2">Fractional Ownership</h3>
             <p className="text-graytext">
-              Own a percentage of a racehorse without the traditional barriers. Start with as little as you’re comfortable with.
+              Own a percentage of a racehorse without the traditional barriers. Start with as little
+              as you’re comfortable with.
             </p>
           </div>
           {/* Performance Linked */}
           <div>
             <div className="mb-4">
-              <div className="w-6 h-6 bg-gold rounded-full flex items-center justify-center text-black text-sm font-bold">●</div>
+              <div className="w-6 h-6 bg-gold rounded-full flex items-center justify-center text-black text-sm font-bold">
+                ●
+              </div>
             </div>
             <h3 className="text-xl font-semibold mb-2">Performance Linked</h3>
             <p className="text-graytext">
-              Your returns are directly tied to your horse’s success on the track. Win, place, or show — you share in the glory.
+              Your returns are directly tied to your horse’s success on the track. Win, place, or
+              show — you share in the glory.
             </p>
           </div>
           {/* Community Driven */}
           <div>
             <div className="mb-4">
-              <div className="w-6 h-6 bg-gold rounded-full flex items-center justify-center text-black text-sm font-bold">→</div>
+              <div className="w-6 h-6 bg-gold rounded-full flex items-center justify-center text-black text-sm font-bold">
+                →
+              </div>
             </div>
             <h3 className="text-xl font-semibold mb-2">Community Driven</h3>
             <p className="text-graytext">
-              Join a community of passionate owners, share the excitement, celebrate victories, and build lasting connections.
+              Join a community of passionate owners, share the excitement, celebrate victories, and
+              build lasting connections.
             </p>
           </div>
         </div>

@@ -12,7 +12,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   src,
   alt,
   fallbackSrc,
-  className = ''
+  className = '',
 }) => {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -36,9 +36,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
 
   return (
     <>
-      {isLoading && (
-        <div className={`animate-pulse bg-gray-200 ${className}`} />
-      )}
+      {isLoading && <div className={`animate-pulse bg-gray-200 ${className}`} />}
       <img
         src={hasError ? fallbackSrc : src}
         alt={alt}

@@ -15,7 +15,7 @@ export default function LandingPage() {
   return (
     <div className="bg-black text-white">
       <Hero />
-      
+
       <SectionMission />
       <ParallaxSection backgroundImage={midImage1} alt="Close-up horse motion" />
 

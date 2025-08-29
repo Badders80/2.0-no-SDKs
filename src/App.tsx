@@ -13,11 +13,7 @@ const App = () => {
 
   return (
     <ErrorBoundary>
-      {USE_AUTH ? (
-        <FutureverseAuthProvider>{content}</FutureverseAuthProvider>
-      ) : (
-        content
-      )}
+      {USE_AUTH ? <FutureverseAuthProvider>{content}</FutureverseAuthProvider> : content}
     </ErrorBoundary>
   );
 };

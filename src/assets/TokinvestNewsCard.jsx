@@ -1,6 +1,7 @@
 import React from 'react';
 
-const cardImage = 'https://tokinvest.capital/_next/image?url=%2Fassets%2Fnews%2Ftokinvest-evolution-stables-partnership.png&w=640&q=75';
+const cardImage =
+  'https://tokinvest.capital/_next/image?url=%2Fassets%2Fnews%2Ftokinvest-evolution-stables-partnership.png&w=640&q=75';
 
 const TokinvestNewsCard = () => (
   <a
@@ -22,16 +23,18 @@ const TokinvestNewsCard = () => (
     }}
     className="tokinvest-news-card-clone"
   >
-    <div style={{
-      background: '#0a2236',
-      borderRadius: '18px 18px 0 0',
-      overflow: 'hidden',
-      padding: 0,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: 160,
-    }}>
+    <div
+      style={{
+        background: '#0a2236',
+        borderRadius: '18px 18px 0 0',
+        overflow: 'hidden',
+        padding: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 160,
+      }}
+    >
       <img
         src={cardImage}
         alt="Tokinvest Appointed by Evolution Stables"
@@ -49,4 +52,4 @@ const TokinvestNewsCard = () => (
   </a>
 );
 
-export default TokinvestNewsCard; 
+export default TokinvestNewsCard;

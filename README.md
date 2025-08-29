@@ -134,6 +134,7 @@ pnpm build --mode analyze
 ## Quick Start for Developers
 
 1. **Clone and Install**
+
    ```bash
    git clone https://github.com/Badders80/2.0-no-SDKs.git
    cd 2.0-no-SDKs
@@ -141,12 +142,14 @@ pnpm build --mode analyze
    ```
 
 2. **Environment Setup**
+
    ```bash
    cp .env.example .env  # If example exists
    # Edit .env with your configuration
    ```
 
 3. **Development**
+
    ```bash
    pnpm dev              # Start dev server
    pnpm type-check       # Check TypeScript
@@ -236,6 +239,7 @@ Evolution Stables operates in the regulated space of racehorse ownership syndica
 ## Testing Strategy
 
 ### Phase 1 Testing Focus
+
 - **Visual Regression**: Component appearance and responsiveness
 - **Error Handling**: Verify error boundaries and fallbacks work correctly
 - **Loading States**: Test loading spinners and page loaders
@@ -243,12 +247,14 @@ Evolution Stables operates in the regulated space of racehorse ownership syndica
 - **Content Fallbacks**: Ensure placeholder components display properly
 
 ### Phase 2 Testing (Future)
+
 - **Web3 Integration**: Wallet connection and transaction flows
 - **Authentication**: OAuth flows and token management
 - **Network Handling**: Offline/online state management
 - **Security**: XSS protection and data sanitization
 
 ### Testing Commands
+
 ```bash
 # Run type checking
 pnpm type-check
@@ -294,31 +300,37 @@ Additional requirements for Web3 functionality:
 ### Common Issues
 
 **Images not loading?**
+
 - Check that image files exist in `src/assets/`
 - Verify import statements use correct relative paths
 - Use `ImageWithFallback` component for automatic fallback handling
 
 **Error boundaries not catching errors?**
+
 - Ensure `ErrorBoundary` wraps the component tree
 - Check browser console for uncaught errors
 - Verify error boundary is imported correctly
 
 **Build failing?**
+
 - Run `pnpm type-check` to identify TypeScript errors
 - Clear node_modules: `rm -rf node_modules && pnpm install`
 - Check Vite configuration for asset handling
 
 **Environment variables not working?**
+
 - Ensure variables start with `VITE_` prefix
 - Restart development server after adding new variables
 - Check `.env` file is in project root
 
 **Styling issues?**
+
 - Verify Tailwind CSS classes are correct
 - Check for CSS conflicts or missing imports
 - Use browser dev tools to inspect elements
 
 ### Debug Mode
+
 Set `NODE_ENV=development` to see detailed error information and component stack traces.
 
 ## Support and Resources
@@ -340,6 +352,7 @@ Set `NODE_ENV=development` to see detailed error information and component stack
 ## Changelog
 
 ### Phase 1 - Static Build (Current)
+
 - ✅ Complete UI/UX implementation
 - ✅ Professional error handling system
 - ✅ Responsive design with Tailwind CSS
@@ -348,6 +361,7 @@ Set `NODE_ENV=development` to see detailed error information and component stack
 - ✅ Development environment setup
 
 ### Upcoming - Phase 2
+
 - 🔄 Futureverse Auth integration
 - 🔄 Web3 wallet connections
 - 🔄 Blockchain transaction handling

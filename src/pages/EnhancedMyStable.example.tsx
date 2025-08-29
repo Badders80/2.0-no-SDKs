@@ -9,7 +9,7 @@ function EnhancedMyStable() {
   const { userSession } = useAuth();
   const { address, isConnected } = useAccount();
   const { data: balance } = useBalance({ address });
-  
+
   // State for real-time data
   const [horseData, setHorseData] = useState([]);
   const [portfolioValue, setPortfolioValue] = useState('0');
@@ -95,7 +95,9 @@ function EnhancedMyStable() {
             <div key={index} className="flex justify-between items-center p-3 bg-gray-800 rounded">
               <div>
                 <p className="font-medium">{tx.type}</p>
-                <p className="text-sm text-gray-400">{tx.horse} - {tx.amount}%</p>
+                <p className="text-sm text-gray-400">
+                  {tx.horse} - {tx.amount}%
+                </p>
               </div>
               <div className="text-right">
                 <p className="text-gold">{tx.value} ETH</p>
@@ -153,11 +155,15 @@ function EnhancedMyStable() {
   return (
     <div className="bg-black text-white min-h-screen">
       <Navbar />
-      
+
       <div className="pt-24 px-6 md:px-20 max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">Welcome back, {userSession.user?.profile?.email}</h1>
-          <p className="text-gray-400">Connected: {address ? `${address.slice(0, 6)}...${address.slice(-4)}` : 'Not connected'}</p>
+          <h1 className="text-4xl font-bold mb-2">
+            Welcome back, {userSession.user?.profile?.email}
+          </h1>
+          <p className="text-gray-400">
+            Connected: {address ? `${address.slice(0, 6)}...${address.slice(-4)}` : 'Not connected'}
+          </p>
         </div>
 
         {/* Enhanced features */}

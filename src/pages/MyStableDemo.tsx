@@ -8,7 +8,7 @@ function MyStableDemo() {
   const { userSession } = useAuth();
   const { address, isConnected } = useAccount();
   const { data: balance } = useBalance({ address });
-  
+
   // Mock data for demo (replace with Tokinvest API calls)
   const [portfolioData, setPortfolioData] = useState({
     totalValue: '$2,847',
@@ -22,27 +22,27 @@ function MyStableDemo() {
         value: '$1,247',
         change: '+6.4%',
         nextRace: 'Aug 5',
-        status: 'winning'
+        status: 'winning',
       },
       {
-        horse: 'Midnight Syndicate', 
+        horse: 'Midnight Syndicate',
         trainer: 'A. Pike',
         owned: '1.5%',
         value: '$890',
         change: '-2.1%',
         nextRace: 'Aug 9',
-        status: 'stable'
+        status: 'stable',
       },
       {
         horse: 'Quantum Blur',
-        trainer: 'J. Richards', 
+        trainer: 'J. Richards',
         owned: '3.7%',
         value: '$710',
         change: '+15.2%',
         nextRace: 'Aug 11',
-        status: 'rising'
-      }
-    ]
+        status: 'rising',
+      },
+    ],
   });
 
   // Live market data (mock - replace with real API)
@@ -50,8 +50,8 @@ function MyStableDemo() {
     availableShares: [
       { horse: 'Thunder Strike', price: '$580', available: '2.5%', trend: 'up' },
       { horse: 'Golden Flash', price: '$920', available: '1.8%', trend: 'stable' },
-      { horse: 'Speed Demon', price: '$1,150', available: '4.2%', trend: 'down' }
-    ]
+      { horse: 'Speed Demon', price: '$1,150', available: '4.2%', trend: 'down' },
+    ],
   });
 
   // Simulate live updates (for demo purposes)
@@ -62,8 +62,8 @@ function MyStableDemo() {
         ...prev,
         holdings: prev.holdings.map(horse => ({
           ...horse,
-          change: (Math.random() > 0.5 ? '+' : '-') + (Math.random() * 10).toFixed(1) + '%'
-        }))
+          change: (Math.random() > 0.5 ? '+' : '-') + (Math.random() * 10).toFixed(1) + '%',
+        })),
       }));
     }, 30000); // Update every 30 seconds for demo
 
@@ -75,7 +75,9 @@ function MyStableDemo() {
       <div className="bg-black text-white min-h-screen">
         <div className="pt-32 text-center">
           <h2 className="text-2xl font-bold mb-4">Connect to view your stable</h2>
-          <p className="text-gray-400 mb-6">See your horse ownership, live performance, and market opportunities</p>
+          <p className="text-gray-400 mb-6">
+            See your horse ownership, live performance, and market opportunities
+          </p>
         </div>
       </div>
     );
@@ -83,7 +85,6 @@ function MyStableDemo() {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      
       <div className="pt-24 px-6 md:px-20 max-w-7xl mx-auto">
         {/* Header with wallet info */}
         <div className="mb-8 flex justify-between items-center">
@@ -93,8 +94,12 @@ function MyStableDemo() {
           </div>
           <div className="text-right">
             <p className="text-sm text-gray-400">Wallet</p>
-            <p className="font-mono">{address ? `${address.slice(0, 8)}...${address.slice(-6)}` : 'Not connected'}</p>
-            <p className="text-sm">{balance ? `${parseFloat(formatEther(balance.value)).toFixed(4)} ETH` : '--'}</p>
+            <p className="font-mono">
+              {address ? `${address.slice(0, 8)}...${address.slice(-6)}` : 'Not connected'}
+            </p>
+            <p className="text-sm">
+              {balance ? `${parseFloat(formatEther(balance.value)).toFixed(4)} ETH` : '--'}
+            </p>
           </div>
         </div>
 
@@ -108,7 +113,9 @@ function MyStableDemo() {
             </div>
             <div className="text-center">
               <p className="text-gray-400 mb-1">Total Return</p>
-              <p className={`text-2xl font-bold ${portfolioData.totalReturn.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
+              <p
+                className={`text-2xl font-bold ${portfolioData.totalReturn.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}
+              >
                 {portfolioData.totalReturn}
               </p>
             </div>
@@ -128,18 +135,26 @@ function MyStableDemo() {
           <h2 className="text-2xl font-bold mb-6">Your Horses</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {portfolioData.holdings.map((horse, index) => (
-              <div key={index} className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors">
+              <div
+                key={index}
+                className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors"
+              >
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h3 className="text-xl font-bold">{horse.horse}</h3>
                     <p className="text-gray-400">Trainer: {horse.trainer}</p>
                   </div>
-                  <div className={`w-3 h-3 rounded-full ${
-                    horse.status === 'winning' ? 'bg-green-400' : 
-                    horse.status === 'rising' ? 'bg-yellow-400' : 'bg-blue-400'
-                  }`}></div>
+                  <div
+                    className={`w-3 h-3 rounded-full ${
+                      horse.status === 'winning'
+                        ? 'bg-green-400'
+                        : horse.status === 'rising'
+                          ? 'bg-yellow-400'
+                          : 'bg-blue-400'
+                    }`}
+                  ></div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span className="text-gray-400">Ownership</span>
@@ -151,7 +166,9 @@ function MyStableDemo() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">24h Change</span>
-                    <span className={`font-bold ${horse.change.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
+                    <span
+                      className={`font-bold ${horse.change.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}
+                    >
                       {horse.change}
                     </span>
                   </div>
@@ -187,11 +204,15 @@ function MyStableDemo() {
                 <div key={index} className="p-4 bg-gray-800 rounded border-l-4 border-gold">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="font-bold">{opportunity.horse}</h4>
-                    <span className={`text-xs px-2 py-1 rounded ${
-                      opportunity.trend === 'up' ? 'bg-green-900 text-green-400' :
-                      opportunity.trend === 'down' ? 'bg-red-900 text-red-400' :
-                      'bg-gray-700 text-gray-300'
-                    }`}>
+                    <span
+                      className={`text-xs px-2 py-1 rounded ${
+                        opportunity.trend === 'up'
+                          ? 'bg-green-900 text-green-400'
+                          : opportunity.trend === 'down'
+                            ? 'bg-red-900 text-red-400'
+                            : 'bg-gray-700 text-gray-300'
+                      }`}
+                    >
                       {opportunity.trend}
                     </span>
                   </div>

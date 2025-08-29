@@ -22,9 +22,7 @@ export default function ParallaxSection({
       }}
       aria-label={alt}
     >
-      <div className="z-10 text-white text-center px-4">
-        {children}
-      </div>
+      <div className="z-10 text-white text-center px-4">{children}</div>
     </section>
   );
 }

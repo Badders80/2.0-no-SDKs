@@ -10,14 +10,15 @@ export default function OwnershipSection() {
   return (
     <section id="mission" className="bg-black px-6 md:px-20 py-24">
       <div className="max-w-4xl">
-        <p className="uppercase text-sm tracking-widest text-graytext mb-4">
-          Our Mission
-        </p>
+        <p className="uppercase text-sm tracking-widest text-graytext mb-4">Our Mission</p>
         <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-          OWNERSHIP<br />RE‑IMAGINED
+          OWNERSHIP
+          <br />
+          RE‑IMAGINED
         </h2>
         <p className="text-lg mb-6">
-          Traditional racehorse ownership — expensive, restrictive, and opaque — has historically excluded those who dream of experiencing the thrill firsthand.
+          Traditional racehorse ownership — expensive, restrictive, and opaque — has historically
+          excluded those who dream of experiencing the thrill firsthand.
         </p>
         <p className="text-lg">
           Evolution Stables removes these barriers, delivering ownership that's{' '}
