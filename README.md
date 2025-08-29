@@ -131,6 +131,21 @@ pnpm type-check
 pnpm build --mode analyze
 ```
 
+## Quality & Dev Flow
+
+- **Lint:** `pnpm lint` (ESLint v9 flat config)
+- **Format:** `pnpm format` / check: `pnpm format:check`
+- **Pre-commit:** Husky + lint-staged runs Prettier/ESLint on staged files
+- **CI:** GitHub Actions runs install → lint → format check → build on PRs and pushes to `main`
+
+### Setup
+
+```bash
+cp .env.example .env.local
+pnpm install
+pnpm dev
+```
+
 ## Quick Start for Developers
 
 1. **Clone and Install**
@@ -377,3 +392,5 @@ Set `NODE_ENV=development` to see detailed error information and component stack
 **Current Status:** Phase 1 Active Development  
 **Next Milestone:** Complete static build and content  
 **Future:** SDK integration and Web3 activation
+
+CI smoke: 2025-08-29T15:19:39
