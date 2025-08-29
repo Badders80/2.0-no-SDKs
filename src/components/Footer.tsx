@@ -1,228 +1,107 @@
-﻿import React from 'react';
-import { motion } from 'framer-motion';
-import { FaLinkedin, FaInstagram } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
-import authorisedSyndicatorLogo from '../assets/Logo-Authorised-syndicator.png';
-import ImageWithFallback from './ImageWithFallback';
+﻿// src/components/Footer.tsx
+import * as React from "react";
+import { FaLinkedinIn, FaXTwitter, FaInstagram } from "react-icons/fa6";
+
+import esText from "../assets/EVOLUTION STABLES.png";
+import nztrBadge from "../assets/Untitled design (1).png";
+
+const GOLD = "#C79B55";
 
 export default function Footer() {
   return (
-    <motion.footer
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="bg-black text-white px-6 md:px-16 pt-36 pb-20 border-t border-neutral-800"
-    >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-sm">
-        {/* Brand and tagline */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <h2 className="text-2xl font-semibold text-gold leading-tight">
-            EVOLUTION
-            <br />
-            STABLES
-          </h2>
-          <p className="mt-4 text-white max-w-xs leading-relaxed">
-            A new era of ownership. Powered by transparency, innovation, and a global community of
-            racehorse enthusiasts.
+    <footer className="w-full bg-black text-[#E6DED1]">
+      <div className="mx-auto max-w-[1120px] px-6 pt-12">
+        {/* Top row: logo + blurb */}
+        <div className="flex flex-col items-start text-left">
+          {/* Logo image */}
+          <img
+            src={esText} // import your logo image
+            alt="Evolution Stables"
+            className="block w-[280px] mb-4"
+          />
+
+          {/* Blurb text (forced line breaks) */}
+          <p className="text-[16px] leading-relaxed max-w-md">
+            A new era of ownership. Powered by <br />
+            transparency, innovation, and a global <br />
+            community of racehorse enthusiasts.
           </p>
-          <div className="flex space-x-4 mt-6 text-gold">
-            <motion.a
-              href="https://www.linkedin.com/in/alex-baddeley/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors duration-300"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FaLinkedin size={24} />
-            </motion.a>
-            <motion.a
-              href="#"
-              aria-label="X (Twitter)"
-              className="hover:text-white transition-colors duration-300"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FaXTwitter size={24} />
-            </motion.a>
-            <motion.a
-              href="#"
-              aria-label="Instagram"
-              className="hover:text-white transition-colors duration-300"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FaInstagram size={24} />
-            </motion.a>
-          </div>
-        </motion.div>
-
-        {/* Navigation links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid grid-cols-3 gap-6"
-        >
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            <h4 className="font-medium text-gold mb-3">Navigation</h4>
-            <ul className="space-y-2 text-white text-sm">
-              <li>
-                <motion.a
-                  href="/mission"
-                  className="hover:text-gold transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Our Mission
-                </motion.a>
-              </li>
-              <li>
-                <motion.a
-                  href="/about"
-                  className="hover:text-gold transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  About
-                </motion.a>
-              </li>
-              <li>
-                <motion.a
-                  href="/innovation"
-                  className="hover:text-gold transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Innovation
-                </motion.a>
-              </li>
-              <li>
-                <motion.a
-                  href="/mystable"
-                  className="hover:text-gold transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  MyStable
-                </motion.a>
-              </li>
-            </ul>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
-            <h4 className="font-medium text-gold mb-3">Resources</h4>
-            <ul className="space-y-2 text-white text-sm">
-              <li>
-                <motion.a
-                  href="/docs"
-                  className="hover:text-gold transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Documentation
-                </motion.a>
-              </li>
-              <li>
-                <motion.a
-                  href="/faq"
-                  className="hover:text-gold transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  FAQ
-                </motion.a>
-              </li>
-              <li>
-                <motion.a
-                  href="https://github.com/Badders80/2.0-no-SDKs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gold transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Changelog
-                </motion.a>
-              </li>
-            </ul>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-          >
-            <h4 className="font-medium text-gold mb-3">Legal</h4>
-            <ul className="space-y-2 text-white text-sm">
-              <li>
-                <motion.a
-                  href="/privacy"
-                  className="hover:text-gold transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Privacy Policy
-                </motion.a>
-              </li>
-              <li>
-                <motion.a
-                  href="/terms"
-                  className="hover:text-gold transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Terms of Service
-                </motion.a>
-              </li>
-              <li>
-                <span className="text-neutral-500">Private License</span>
-              </li>
-            </ul>
-          </motion.div>
-        </motion.div>
-
-        {/* Accreditation */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="md:text-right"
-        >
-          <h4 className="font-medium text-gold mb-3">Accredited By</h4>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-          >
-            <ImageWithFallback
-              src={authorisedSyndicatorLogo}
-              alt="NZTR Authorised Syndicator"
-              className="h-16 ml-[-6px] inline-block object-contain"
-            />
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Bottom border + copyright */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="mt-20 border-t border-neutral-800 pt-6 text-center text-xs text-neutral-500"
-      >
-        &copy; {new Date().getFullYear()} Evolution Stables. All rights reserved.
-      </motion.div>
-    </motion.footer>
+      {/* Divider line goes here (full width across container) */}
+      <div
+        className="mt-10"
+        style={{ borderTop: `1px solid ${GOLD}` }}
+      />
+
+      <div className="mx-auto max-w-[1120px] px-6">
+        {/* Bottom grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 py-10 md:py-12">
+          {/* Left column is empty (logo is above the line now) */}
+
+          {/* Middle columns */}
+          <div className="md:col-span-8 grid grid-cols-3 gap-6">
+            <nav>
+              <h3 className="mb-3 text-sm font-medium uppercase" style={{ color: GOLD }}>
+                Navigation
+              </h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="/#mission">Our Mission</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#innovation">Innovation</a></li>
+                <li><a href="/mystable">MyStable</a></li>
+              </ul>
+            </nav>
+
+            <nav>
+              <h3 className="mb-3 text-sm font-medium uppercase" style={{ color: GOLD }}>
+                Resources
+              </h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="/docs">Documentation</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/changelog">Changelog</a></li>
+              </ul>
+            </nav>
+
+            <nav>
+              <h3 className="mb-3 text-sm font-medium uppercase" style={{ color: GOLD }}>
+                Legal
+              </h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/terms">Terms of Service</a></li>
+                <li><a href="/license">Private License</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          {/* Right column: accredited badge */}
+          <div className="md:col-span-4">
+            <h3 className="mb-3 text-sm font-medium uppercase" style={{ color: GOLD }}>
+              Accredited By
+            </h3>
+            <img
+              src={nztrBadge}
+              alt="NZTR Authorised Syndicator"
+              className="h-24 w-auto object-contain"
+            />
+          </div>
+        </div>
+
+        {/* Socials */}
+        <div className="flex items-center justify-center gap-6 py-2">
+          <FaLinkedinIn className="h-5 w-5 opacity-80 hover:opacity-100 cursor-pointer" />
+          <FaXTwitter className="h-5 w-5 opacity-80 hover:opacity-100 cursor-pointer" />
+          <FaInstagram className="h-5 w-5 opacity-80 hover:opacity-100 cursor-pointer" />
+        </div>
+
+        {/* Copyright */}
+        <p className="pb-8 text-center text-xs opacity-70">
+          &copy; {new Date().getFullYear()} Evolution Stables. All rights reserved.
+        </p>
+      </div>
+    </footer>
   );
 }

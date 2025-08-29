@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:analyze": "ANALYZE=true vite build",
+    "postbuild": "node -e \"if(process.env.CI !== 'true') { require('child_process').spawn('pnpm', ['dev'], { stdio: 'inherit', shell: true }) }\"",
     "preview": "vite preview",
     "prepare": "husky",
     "lint": "eslint .",

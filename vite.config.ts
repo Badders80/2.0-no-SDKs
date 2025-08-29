@@ -7,7 +7,15 @@ import path from 'path';
 export default defineConfig({
   plugins: [
     react(),
-    visualizer({ filename: 'stats.html', open: true, gzipSize: true, brotliSize: true }),
+    // Only generate stats.html when explicitly requested via ANALYZE=true
+    ...(process.env.ANALYZE === 'true' ? [
+      visualizer({
+        filename: 'stats.html',
+        open: false, // Don't auto-open
+        gzipSize: true,
+        brotliSize: true
+      })
+    ] : []),
   ],
   define: {
     global: 'globalThis',
