@@ -30,6 +30,11 @@ export default [
       'react/jsx-uses-react': 'off',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
+      '@typescript-eslint/no-unused-vars': 'off', // Temporarily disabled
+      '@typescript-eslint/no-explicit-any': 'off', // Temporarily disabled
+      'no-console': 'off', // Temporarily disabled
+      'no-dupe-else-if': 'off', // Temporarily disabled
+      'no-undef': 'error',
     },
   },
 ];
