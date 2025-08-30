@@ -1,4 +1,5 @@
 import React from 'react';
+
 import hostsWave from '../assets/hosts-wave.jpg';
 import hostsSunset from '../assets/hosts-sunset.jpg';
 

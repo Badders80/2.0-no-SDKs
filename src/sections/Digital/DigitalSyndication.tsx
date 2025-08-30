@@ -1,5 +1,6 @@
 // src/sections/Digital/DigitalSyndication.tsx
 import React from 'react';
+
 import Section from '../../components/Section';
 import bandImg from '../../assets/racelegs.png'; // optional: add as a separator above via a separate SectionFullBleed
 

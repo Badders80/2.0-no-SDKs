@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { FutureverseAuthProvider } from './components/FutureverseAuthProvider';
 import MainLayout from './layout/MainLayout';
 import MyStable from './pages/MyStable';

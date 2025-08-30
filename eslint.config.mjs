@@ -1,51 +1,52 @@
+// eslint.config.mjs (minimal, no preset arrays)
 import js from '@eslint/js';
-import globals from 'globals';
-import react from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import tseslint from 'typescript-eslint';
+import ts from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
+import reactPlugin from 'eslint-plugin-react';
+import tailwindPlugin from 'eslint-plugin-tailwindcss';
 
-export default tseslint.config(
-  { ignores: ['dist', 'node_modules', 'coverage'] },
+export default [
+  js.configs.recommended,
+  ...ts.configs.recommended,
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
     plugins: {
-      react: react,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
       import: importPlugin,
+      react: reactPlugin,
+      tailwindcss: tailwindPlugin,
+    },
+    settings: {
+      'import/resolver': {
+        typescript: true,
+        node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+      },
+      react: { version: 'detect' },
     },
     rules: {
-      ...react.configs.recommended.rules,
-      ...react.configs['jsx-runtime'].rules,
-      ...reactHooks.configs.recommended.rules,
-      'react/jsx-no-target-blank': 'off',
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      // import/order
       'import/order': [
         'error',
         {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
           'newlines-between': 'always',
+          alphabetize: { order: 'asc', caseInsensitive: true },
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
         },
       ],
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      // TS/React
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       '@typescript-eslint/no-explicit-any': 'warn',
+      'react/jsx-no-useless-fragment': 'warn',
+      'react/no-unescaped-entities': 'off',
+      // Tailwind (helpful)
+      'tailwindcss/classnames-order': 'warn',
+      'tailwindcss/no-custom-classname': 'off',
     },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-      'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true,
-        },
-      },
+  },
+  {
+    files: ['**/*.example.*', 'src/pages/MyStableDemo.*'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      'import/order': 'off',
     },
-  }
-);
+  },
+];

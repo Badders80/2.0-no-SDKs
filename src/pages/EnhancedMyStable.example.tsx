@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../auth/useAuth';
 import { useAccount, useBalance, useReadContract, useWatchContractEvent } from 'wagmi';
 import { formatEther, parseEther } from 'viem';
+
+import { useAuth } from '../auth/useAuth';
 import Navbar from '../components/Navbar';
 
 // Example enhanced MyStable with Futureverse SDK features

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar';
-import LoginButton from '../components/LoginButton';
-import { useAuth } from '../auth/useAuth';
 import { useAccount, useBalance } from 'wagmi';
 import { formatEther } from 'viem';
 import { Card, Button, Typography, Avatar } from '@futureverse/auth-ui';
+
+import Navbar from '../components/Navbar';
+import LoginButton from '../components/LoginButton';
+import { useAuth } from '../auth/useAuth';
 
 /**
  * Enhanced MyStable Dashboard - Shows portfolio data with Tokinvest integration

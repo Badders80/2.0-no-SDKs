@@ -1,5 +1,6 @@
 // src/pages/Ui.tsx
 import React from 'react';
+
 import Section from '../components/Section';
 import SectionFullBleed from '../components/SectionFullBleed';
 import Hero from '../components/Hero';
