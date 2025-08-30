@@ -1,29 +1,22 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { FutureverseAuthProvider } from './components/FutureverseAuthProvider';
 import MainLayout from './layout/MainLayout';
+import MyStable from './pages/MyStable';
 import ErrorBoundary from './components/ErrorBoundary';
-import PageLoader from './components/PageLoader';
-
-// Lazy load heavy components
-const MyStable = lazy(() => import('./pages/MyStable'));
+import AppShell from './layout/AppShell';
 
 // Use environment variable instead of hardcoded value
 const USE_AUTH = import.meta.env.VITE_USE_AUTH === 'true';
 
 const App = () => {
   const path = window.location.pathname.toLowerCase();
-  const content =
-    path === '/mystable' ? (
-      <Suspense fallback={<PageLoader />}>
-        <MyStable />
-      </Suspense>
-    ) : (
-      <MainLayout />
-    );
+  const content = path === '/mystable' ? <MyStable /> : <MainLayout />;
 
   return (
     <ErrorBoundary>
-      {USE_AUTH ? <FutureverseAuthProvider>{content}</FutureverseAuthProvider> : content}
+      <AppShell>
+        {USE_AUTH ? <FutureverseAuthProvider>{content}</FutureverseAuthProvider> : content}
+      </AppShell>
     </ErrorBoundary>
   );
 };

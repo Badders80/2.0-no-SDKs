@@ -10,7 +10,7 @@ const GOLD = "#C79B55";
 export default function Footer() {
   return (
     <footer className="w-full bg-black text-[#E6DED1]">
-      <div className="mx-auto max-w-[1120px] px-6 pt-12">
+      <div className="mx-auto max-w-[1200px] px-6 sm:px-8 pt-12">
         {/* Top row: logo + blurb */}
         <div className="flex flex-col items-start text-left">
           {/* Logo image */}
@@ -35,7 +35,7 @@ export default function Footer() {
         style={{ borderTop: `1px solid ${GOLD}` }}
       />
 
-      <div className="mx-auto max-w-[1120px] px-6">
+      <div className="mx-auto max-w-[1200px] px-6 sm:px-8">
         {/* Bottom grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 py-10 md:py-12">
           {/* Left column is empty (logo is above the line now) */}
