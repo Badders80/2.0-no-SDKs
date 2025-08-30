@@ -1,15 +1,16 @@
-import React from 'react';
+import * as React from "react";
 
 /**
- * The "Our Mission" section introduces the concept of ownership
- * re‑imagined. All copy is provided by the user verbatim and should
- * not be altered. Highlighted phrases are coloured gold to draw
- * attention within the paragraph.
+ * OurMission (split out of Hero)
+ * IMPORTANT:
+ * - Paste the EXACT existing "Our Mission" markup between the markers below.
+ * - Keep the SAME wrappers (<section> / <Section>), classNames, spacing, and copy.
+ * - Do NOT change colours, sizes, or CTA styles.
  */
-export default function OwnershipSection() {
+export default function OurMission() {
   return (
-    <section id="mission" className="bg-black px-6 md:px-20 py-24">
-      <div className="max-w-4xl">
+    <section id="mission" className="bg-black">
+      <div className="mx-auto max-w-[1200px] px-10 sm:px-16 py-24">
         <p className="uppercase text-sm tracking-widest text-graytext mb-4">Our Mission</p>
         <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
           OWNERSHIP

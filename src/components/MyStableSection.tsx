@@ -8,8 +8,8 @@ import LoginButton from './LoginButton';
  */
 export default function MyStableSection() {
   return (
-    <section id="mystable" className="bg-black px-6 md:px-20 py-24">
-      <div className="max-w-4xl">
+    <section id="mystable" className="bg-black">
+      <div className="mx-auto max-w-[1200px] px-10 sm:px-16 py-24">
         <p className="uppercase text-sm tracking-widest text-graytext mb-4">MyStable</p>
         <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
           Everything you need, in one <span className="text-gold">stable</span> place.

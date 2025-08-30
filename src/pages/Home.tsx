@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import OwnershipSection from '../components/OwnershipSection';
+import OurMission from '../components/sections/OurMission';
 import MidImageSection from '../components/MidImageSection';
 import FeatureGrid from '../components/FeatureGrid';
 import MidImageSection2 from '../components/MidImageSection2';
@@ -23,7 +23,7 @@ export default function Home() {
     <div className="bg-black text-white">
       <Navbar />
       <Hero />
-      <OwnershipSection />
+      <OurMission />
       <MidImageSection />
       <FeatureGrid />
       <MidImageSection2 />

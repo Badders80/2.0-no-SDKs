@@ -10,11 +10,11 @@ export default function Hero() {
       style={{ backgroundImage: `url(${heroBg})` }}
     >
       <div className="absolute inset-0 bg-black/60" />
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 sm:px-8">
+      <div className="relative z-10 mx-auto max-w-[1200px] px-10 sm:px-16">
         <img
           src={evolutionText}
           alt="Evolution Stables"
-          className="w-[520px] max-w-full"
+          className="w-[1040px] max-w-full"
         />
       </div>
     </section>

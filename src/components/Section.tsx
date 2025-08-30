@@ -7,8 +7,8 @@ type Props = React.PropsWithChildren<{
   bleed?: boolean; // when true, background can go edge-to-edge
 }>;
 
-const CONTAINER = "max-w-[1200px] mx-auto px-6 sm:px-8";
-const VSPACE = "py-16 sm:py-24";
+const CONTAINER = "max-w-[1200px] mx-auto px-10 sm:px-16";
+const VSPACE = "py-24";
 
 export default function Section({ id, className = "", bleed = false, children }: Props) {
   return (
