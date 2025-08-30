@@ -1,26 +1,20 @@
-import React from 'react';
-import heroBg from '../assets/Horse-Double-Black.png';
-import evolutionText from '../assets/Copy of Evolution Brand Kit (11 x 4 in).png';
+// src/components/Hero.tsx  (keep the image full-bleed, align inner content with the same container)
+import * as React from "react";
+import heroBg from "../assets/Horse-Double-Black.png";
+import evolutionText from "../assets/Copy of Evolution Brand Kit (11 x 4 in).png";
 
-/**
- * Full‑screen hero section with a darkened background image and
- * centred gold logo. There is no additional text here; the logo
- * alone anchors the page.
- */
 export default function Hero() {
   return (
     <section
-      className="relative w-full h-screen bg-cover bg-center flex items-center justify-center"
+      className="relative w-full h-[92vh] min-h-[560px] bg-cover bg-center flex items-center"
       style={{ backgroundImage: `url(${heroBg})` }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
-      {/* Centered Evolution Stables Text Image */}
-      <div className="relative z-10 flex items-center justify-center w-full">
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 sm:px-8">
         <img
           src={evolutionText}
-          alt="EVOLUTION STABLES"
-          className="w-[840px] max-w-full h-auto mx-auto drop-shadow-lg"
+          alt="Evolution Stables"
+          className="w-[520px] max-w-full"
         />
       </div>
     </section>

@@ -4,7 +4,7 @@ import Section from "../../components/Section";
 
 export default function OwnershipReimagined() {
   return (
-    <Section className="bg-black">
+    <Section className="bg-black text-center">
       <p className="text-[11px] tracking-[0.18em] uppercase text-brand-grey">
         Our Mission
       </p>
@@ -13,8 +13,7 @@ export default function OwnershipReimagined() {
         Ownership <span className="text-brand-gold">Re-imagined</span>
       </h2>
 
-      {/* keep copy readable without shifting the left edge */}
-      <p className="mt-4 max-w-[680px] text-body text-brand-grey">
+      <p className="mt-4 max-w-[680px] text-body text-brand-grey mx-auto">
         Traditional racehorse ownership—expensive, restrictive, and opaque—has
         historically excluded those who dream of experiencing the thrill firsthand.
         Evolution Stables removes those barriers, delivering ownership that’s
