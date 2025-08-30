@@ -11,9 +11,9 @@ function EnhancedMyStable() {
   const { data: balance } = useBalance({ address });
 
   // State for real-time data
-  const [horseData, setHorseData] = useState([]);
+  const [horseData, setHorseData] = useState<any[]>([]);
   const [portfolioValue, setPortfolioValue] = useState('0');
-  const [recentTransactions, setRecentTransactions] = useState([]);
+  const [recentTransactions, setRecentTransactions] = useState<any[]>([]);
 
   // Get user's horse ownership from blockchain
   const { data: ownedShares } = useReadContract({
@@ -28,7 +28,7 @@ function EnhancedMyStable() {
       },
     ],
     functionName: 'getOwnerShares',
-    args: [address],
+    args: address ? [address] : undefined,
   });
 
   // Watch for real-time updates
@@ -63,24 +63,24 @@ function EnhancedMyStable() {
   const features = {
     // 1. Live Portfolio Tracking
     portfolioTracking: () => (
-      <div className="bg-gray-900 rounded-lg p-6 mb-6">
-        <h3 className="text-xl font-bold mb-4">Portfolio Overview</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className='bg-gray-900 rounded-lg p-6 mb-6'>
+        <h3 className='text-xl font-bold mb-4'>Portfolio Overview</h3>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
           <div>
-            <p className="text-gray-400">Total Value</p>
-            <p className="text-2xl font-bold text-gold">${portfolioValue}</p>
+            <p className='text-gray-400'>Total Value</p>
+            <p className='text-2xl font-bold text-gold'>${portfolioValue}</p>
           </div>
           <div>
-            <p className="text-gray-400">Wallet Balance</p>
-            <p className="text-lg">{balance ? formatEther(balance.value) : '0'} ETH</p>
+            <p className='text-gray-400'>Wallet Balance</p>
+            <p className='text-lg'>{balance ? formatEther(balance.value) : '0'} ETH</p>
           </div>
           <div>
-            <p className="text-gray-400">Horses Owned</p>
-            <p className="text-lg">{horseData.length}</p>
+            <p className='text-gray-400'>Horses Owned</p>
+            <p className='text-lg'>{horseData.length}</p>
           </div>
           <div>
-            <p className="text-gray-400">Total Shares</p>
-            <p className="text-lg">{/* Calculate total shares */}</p>
+            <p className='text-gray-400'>Total Shares</p>
+            <p className='text-lg'>{/* Calculate total shares */}</p>
           </div>
         </div>
       </div>
@@ -88,20 +88,20 @@ function EnhancedMyStable() {
 
     // 2. Live Transaction Feed
     transactionFeed: () => (
-      <div className="bg-gray-900 rounded-lg p-6 mb-6">
-        <h3 className="text-xl font-bold mb-4">Recent Activity</h3>
-        <div className="space-y-3">
+      <div className='bg-gray-900 rounded-lg p-6 mb-6'>
+        <h3 className='text-xl font-bold mb-4'>Recent Activity</h3>
+        <div className='space-y-3'>
           {recentTransactions.map((tx, index) => (
-            <div key={index} className="flex justify-between items-center p-3 bg-gray-800 rounded">
+            <div key={index} className='flex justify-between items-center p-3 bg-gray-800 rounded'>
               <div>
-                <p className="font-medium">{tx.type}</p>
-                <p className="text-sm text-gray-400">
+                <p className='font-medium'>{tx.type}</p>
+                <p className='text-sm text-gray-400'>
                   {tx.horse} - {tx.amount}%
                 </p>
               </div>
-              <div className="text-right">
-                <p className="text-gold">{tx.value} ETH</p>
-                <p className="text-xs text-gray-400">{tx.time}</p>
+              <div className='text-right'>
+                <p className='text-gold'>{tx.value} ETH</p>
+                <p className='text-xs text-gray-400'>{tx.time}</p>
               </div>
             </div>
           ))}
@@ -116,7 +116,7 @@ function EnhancedMyStable() {
           // Use writeContract to purchase shares
           console.log(`Buying share of horse ${horseId} for ${sharePrice} ETH`);
         }}
-        className="bg-gold text-black px-4 py-2 rounded font-medium hover:bg-yellow-500 transition"
+        className='bg-gold text-black px-4 py-2 rounded font-medium hover:bg-yellow-500 transition'
       >
         Buy Share
       </button>
@@ -124,17 +124,17 @@ function EnhancedMyStable() {
 
     // 4. Real-time Race Updates
     raceUpdates: () => (
-      <div className="bg-gray-900 rounded-lg p-6 mb-6">
-        <h3 className="text-xl font-bold mb-4">Live Race Updates</h3>
+      <div className='bg-gray-900 rounded-lg p-6 mb-6'>
+        <h3 className='text-xl font-bold mb-4'>Live Race Updates</h3>
         {/* Real-time race data */}
       </div>
     ),
 
     // 5. NFT Gallery
     nftGallery: () => (
-      <div className="bg-gray-900 rounded-lg p-6 mb-6">
-        <h3 className="text-xl font-bold mb-4">Your Horse NFTs</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className='bg-gray-900 rounded-lg p-6 mb-6'>
+        <h3 className='text-xl font-bold mb-4'>Your Horse NFTs</h3>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
           {/* Display owned horse NFTs */}
         </div>
       </div>
@@ -143,25 +143,25 @@ function EnhancedMyStable() {
 
   if (!userSession) {
     return (
-      <div className="bg-black text-white min-h-screen flex flex-col items-center justify-center">
+      <div className='bg-black text-white min-h-screen flex flex-col items-center justify-center'>
         <Navbar />
-        <div className="mt-32 text-center">
-          <h2 className="text-2xl font-bold mb-4">Sign in to access MyStable</h2>
+        <div className='mt-32 text-center'>
+          <h2 className='text-2xl font-bold mb-4'>Sign in to access MyStable</h2>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className='bg-black text-white min-h-screen'>
       <Navbar />
 
-      <div className="pt-24 px-6 md:px-20 max-w-7xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">
+      <div className='pt-24 px-6 md:px-20 max-w-7xl mx-auto'>
+        <div className='mb-8'>
+          <h1 className='text-4xl font-bold mb-2'>
             Welcome back, {userSession.user?.profile?.email}
           </h1>
-          <p className="text-gray-400">
+          <p className='text-gray-400'>
             Connected: {address ? `${address.slice(0, 6)}...${address.slice(-4)}` : 'Not connected'}
           </p>
         </div>

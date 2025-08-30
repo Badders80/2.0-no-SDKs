@@ -14,7 +14,6 @@ function MyStableContent() {
   const { userSession } = useAuth();
   const { address, isConnected } = useAccount();
   const { data: balance } = useBalance({ address });
-
   // Get Futureverse wallet info from userSession
   const futureverseAddress = userSession?.eoa; // Externally Owned Account
   const futureverseConnected = !!userSession?.eoa;
@@ -90,26 +89,26 @@ function MyStableContent() {
 
   if (!userSession) {
     return (
-      <div className="bg-black text-white min-h-screen flex flex-col items-center justify-center">
+      <div className='bg-black text-white min-h-screen flex flex-col items-center justify-center'>
         <Navbar />
-        <div className="mt-32 text-center">
-          <h2 className="text-2xl font-bold mb-4">Sign in to access MyStable</h2>
-          <p className="text-gray-400 mb-6">Connect your wallet to view your horse portfolio</p>
-          <LoginButton label="Enter MyStable" />
+        <div className='mt-32 text-center'>
+          <h2 className='text-2xl font-bold mb-4'>Sign in to access MyStable</h2>
+          <p className='text-gray-400 mb-6'>Connect your wallet to view your horse portfolio</p>
+          <LoginButton label='Enter MyStable' />
         </div>
       </div>
     );
   }
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className='bg-black text-white min-h-screen'>
       <Navbar />
 
-      <div className="pt-24 px-6 md:px-20 max-w-7xl mx-auto">
+      <div className='pt-24 px-6 md:px-20 max-w-7xl mx-auto'>
         {/* Header with user and wallet info */}
-        <div className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center">
+        <div className='mb-8 flex flex-col md:flex-row justify-between items-start md:items-center'>
           <div>
-            <h1 className="text-4xl font-bold mb-2">Your Stable</h1>
-            <p className="text-gray-400">
+            <h1 className='text-4xl font-bold mb-2'>Your Stable</h1>
+            <p className='text-gray-400'>
               Welcome back,{' '}
               {(() => {
                 const profile = userSession.user?.profile as any;
@@ -155,16 +154,16 @@ function MyStableContent() {
               })()}
             </p>
           </div>
-          <div className="mt-4 md:mt-0 text-left md:text-right">
-            <p className="text-sm text-gray-400">
+          <div className='mt-4 md:mt-0 text-left md:text-right'>
+            <p className='text-sm text-gray-400'>
               {displayConnected ? 'Wallet Connected' : 'Wallet Not Connected'}
             </p>
-            <p className="font-mono text-sm">
+            <p className='font-mono text-sm'>
               {displayAddress
                 ? `${displayAddress.slice(0, 8)}...${displayAddress.slice(-6)}`
                 : 'Not connected'}
             </p>
-            <p className="text-sm">
+            <p className='text-sm'>
               {balance
                 ? `${parseFloat(formatEther(balance.value)).toFixed(4)} ETH`
                 : displayConnected
@@ -189,8 +188,8 @@ function MyStableContent() {
             >
               Portfolio Overview
             </Typography>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
+              <div className='text-center'>
                 <Typography style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>
                   Total Value
                 </Typography>
@@ -198,7 +197,7 @@ function MyStableContent() {
                   {portfolioData.totalValue}
                 </Typography>
               </div>
-              <div className="text-center">
+              <div className='text-center'>
                 <Typography style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>
                   Total Return
                 </Typography>
@@ -212,7 +211,7 @@ function MyStableContent() {
                   {portfolioData.totalReturn}
                 </Typography>
               </div>
-              <div className="text-center">
+              <div className='text-center'>
                 <Typography style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>
                   Total Ownership
                 </Typography>
@@ -220,7 +219,7 @@ function MyStableContent() {
                   {portfolioData.totalShares}
                 </Typography>
               </div>
-              <div className="text-center">
+              <div className='text-center'>
                 <Typography style={{ color: '#9ca3af', marginBottom: '0.25rem' }}>
                   Horses Owned
                 </Typography>
@@ -233,7 +232,7 @@ function MyStableContent() {
         </Card>
 
         {/* Your Horses */}
-        <div className="mb-8">
+        <div className='mb-8'>
           <Typography
             style={{
               fontSize: '1.5rem',
@@ -244,7 +243,7 @@ function MyStableContent() {
           >
             Your Horses
           </Typography>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
             {portfolioData.holdings.map((horse, index) => (
               <Card
                 key={index}
@@ -256,7 +255,7 @@ function MyStableContent() {
                 }}
               >
                 <div style={{ padding: '1.5rem' }}>
-                  <div className="flex justify-between items-start mb-4">
+                  <div className='flex justify-between items-start mb-4'>
                     <div>
                       <Typography
                         style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'white' }}
@@ -276,20 +275,20 @@ function MyStableContent() {
                     ></div>
                   </div>
 
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
+                  <div className='space-y-2'>
+                    <div className='flex justify-between'>
                       <Typography style={{ color: '#9ca3af' }}>Ownership</Typography>
                       <Typography style={{ fontWeight: 'bold', color: 'white' }}>
                         {horse.owned}
                       </Typography>
                     </div>
-                    <div className="flex justify-between">
+                    <div className='flex justify-between'>
                       <Typography style={{ color: '#9ca3af' }}>Value</Typography>
                       <Typography style={{ fontWeight: 'bold', color: 'white' }}>
                         {horse.value}
                       </Typography>
                     </div>
-                    <div className="flex justify-between">
+                    <div className='flex justify-between'>
                       <Typography style={{ color: '#9ca3af' }}>24h Change</Typography>
                       <Typography
                         style={{
@@ -300,22 +299,22 @@ function MyStableContent() {
                         {horse.change}
                       </Typography>
                     </div>
-                    <div className="flex justify-between">
+                    <div className='flex justify-between'>
                       <Typography style={{ color: '#9ca3af' }}>Next Race</Typography>
                       <Typography style={{ color: 'white' }}>{horse.nextRace}</Typography>
                     </div>
                   </div>
 
                   {/* Tokinvest Integration */}
-                  <div className="mt-4 pt-4 border-t border-gray-700">
+                  <div className='mt-4 pt-4 border-t border-gray-700'>
                     <Typography
                       style={{ fontSize: '0.75rem', color: '#9ca3af', marginBottom: '0.5rem' }}
                     >
                       Manage via Tokinvest
                     </Typography>
-                    <div className="flex gap-2">
+                    <div className='flex gap-2'>
                       <Button
-                        variant="primary"
+                        variant='primary'
                         onClick={openTokinvest}
                         style={{
                           flex: 1,
@@ -327,7 +326,7 @@ function MyStableContent() {
                         View Details
                       </Button>
                       <Button
-                        variant="secondary"
+                        variant='secondary'
                         onClick={openTokinvest}
                         style={{
                           flex: 1,
@@ -345,14 +344,14 @@ function MyStableContent() {
         </div>
 
         {/* Market Opportunities */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-6">Market Opportunities</h2>
-          <div className="bg-gray-900 rounded-lg p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className='mb-8'>
+          <h2 className='text-2xl font-bold mb-6'>Market Opportunities</h2>
+          <div className='bg-gray-900 rounded-lg p-6'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
               {marketData.availableShares.map((opportunity, index) => (
-                <div key={index} className="p-4 bg-gray-800 rounded border-l-4 border-gold">
-                  <div className="flex justify-between items-center mb-2">
-                    <h4 className="font-bold">{opportunity.horse}</h4>
+                <div key={index} className='p-4 bg-gray-800 rounded border-l-4 border-gold'>
+                  <div className='flex justify-between items-center mb-2'>
+                    <h4 className='font-bold'>{opportunity.horse}</h4>
                     <span
                       className={`text-xs px-2 py-1 rounded ${
                         opportunity.trend === 'up'
@@ -365,11 +364,11 @@ function MyStableContent() {
                       {opportunity.trend}
                     </span>
                   </div>
-                  <p className="text-gray-400 text-sm mb-1">{opportunity.available} available</p>
-                  <p className="text-lg font-bold text-gold mb-3">{opportunity.price}</p>
+                  <p className='text-gray-400 text-sm mb-1'>{opportunity.available} available</p>
+                  <p className='text-lg font-bold text-gold mb-3'>{opportunity.price}</p>
                   <button
                     onClick={openTokinvest}
-                    className="w-full py-2 bg-gray-700 text-sm rounded hover:bg-gray-600 transition"
+                    className='w-full py-2 bg-gray-700 text-sm rounded hover:bg-gray-600 transition'
                   >
                     Buy on Tokinvest
                   </button>
@@ -380,29 +379,29 @@ function MyStableContent() {
         </div>
 
         {/* Live Activity Feed */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-6">Live Activity</h2>
-          <div className="bg-gray-900 rounded-lg p-6">
-            <div className="space-y-4">
-              <div className="flex items-center gap-4 p-3 bg-gray-800 rounded">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <div className="flex-1">
-                  <p className="font-medium">Zeddiani finished 2nd at Ellerslie</p>
-                  <p className="text-sm text-gray-400">Your 3% share earned $47 • 5 minutes ago</p>
+        <div className='mb-8'>
+          <h2 className='text-2xl font-bold mb-6'>Live Activity</h2>
+          <div className='bg-gray-900 rounded-lg p-6'>
+            <div className='space-y-4'>
+              <div className='flex items-center gap-4 p-3 bg-gray-800 rounded'>
+                <div className='w-2 h-2 bg-green-400 rounded-full animate-pulse'></div>
+                <div className='flex-1'>
+                  <p className='font-medium'>Zeddiani finished 2nd at Ellerslie</p>
+                  <p className='text-sm text-gray-400'>Your 3% share earned $47 • 5 minutes ago</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 p-3 bg-gray-800 rounded">
-                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                <div className="flex-1">
-                  <p className="font-medium">New shares available: Thunder Strike</p>
-                  <p className="text-sm text-gray-400">2.5% available at $580 • 12 minutes ago</p>
+              <div className='flex items-center gap-4 p-3 bg-gray-800 rounded'>
+                <div className='w-2 h-2 bg-blue-400 rounded-full'></div>
+                <div className='flex-1'>
+                  <p className='font-medium'>New shares available: Thunder Strike</p>
+                  <p className='text-sm text-gray-400'>2.5% available at $580 • 12 minutes ago</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 p-3 bg-gray-800 rounded">
-                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                <div className="flex-1">
-                  <p className="font-medium">Quantum Blur market price updated</p>
-                  <p className="text-sm text-gray-400">+15.2% today • 18 minutes ago</p>
+              <div className='flex items-center gap-4 p-3 bg-gray-800 rounded'>
+                <div className='w-2 h-2 bg-yellow-400 rounded-full'></div>
+                <div className='flex-1'>
+                  <p className='font-medium'>Quantum Blur market price updated</p>
+                  <p className='text-sm text-gray-400'>+15.2% today • 18 minutes ago</p>
                 </div>
               </div>
             </div>
@@ -433,7 +432,7 @@ function MyStableContent() {
               Buy and sell horse shares with our tokenization partner Tokinvest
             </Typography>
             <Button
-              variant="primary"
+              variant='primary'
               onClick={openTokinvest}
               style={{
                 backgroundColor: '#d4a964',

@@ -1,5 +1,5 @@
 // src/components/Section.tsx  (make this the single source of truth)
-import * as React from "react";
+import * as React from 'react';
 
 type Props = React.PropsWithChildren<{
   id?: string;
@@ -7,12 +7,12 @@ type Props = React.PropsWithChildren<{
   bleed?: boolean; // when true, background can go edge-to-edge
 }>;
 
-const CONTAINER = "max-w-[1200px] mx-auto px-10 sm:px-16";
-const VSPACE = "py-24";
+const CONTAINER = 'max-w-[1200px] mx-auto px-10 sm:px-16';
+const VSPACE = 'py-24';
 
-export default function Section({ id, className = "", bleed = false, children }: Props) {
+export default function Section({ id, className = '', bleed = false, children }: Props) {
   return (
-    <section id={id} className={`${bleed ? "" : VSPACE} ${className}`}>
+    <section id={id} className={`${bleed ? '' : VSPACE} ${className}`}>
       <div className={CONTAINER}>{children}</div>
     </section>
   );

@@ -1,7 +1,5 @@
 # Evolution Stables - Digital Horse Racing Syndication Platform
 
-![CI](https://github.com/Badders80/2.0-no-SDKs/actions/workflows/ci.yml/badge.svg)
-
 A modern web application enabling digital ownership and syndication of racehorses through blockchain technology.
 
 ## Project Overview
@@ -50,6 +48,74 @@ This approach allows for:
 - **Package Manager:** pnpm
 - **Authentication:** Futureverse Auth (prepared for Phase 2)
 - **Web3:** Wagmi + Viem (prepared for Phase 2)
+
+## 🚀 Development
+
+### Prerequisites
+
+- Node.js 18+
+- pnpm
+- Git
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/Badders80/2.0-no-SDKs.git
+cd 2.0-no-SDKs
+
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+```
+
+### Available Scripts
+
+```bash
+# Development
+pnpm dev              # Start dev server
+pnpm preview          # Preview production build
+
+# Building
+pnpm build            # Production build
+pnpm build:analyze    # Build with bundle analyzer
+
+# Code Quality
+pnpm lint             # Run ESLint
+pnpm lint:fix         # Fix ESLint issues
+pnpm format           # Format with Prettier
+pnpm format:check     # Check formatting
+pnpm type-check       # TypeScript type checking
+
+# Git Hooks
+pnpm prepare          # Setup husky
+```
+
+### Development Workflow
+
+1. **Code Quality**: ESLint + Prettier ensure consistent code style
+2. **Type Safety**: Strict TypeScript configuration
+3. **Git Hooks**: Pre-commit hooks run linting and formatting
+4. **Bundle Analysis**: Visual bundle analyzer for optimization
+
+### Build Optimization
+
+- **Code Splitting**: Vendor, UI, and Web3 chunks
+- **Tree Shaking**: Automatic dead code elimination
+- **Minification**: ESBuild for fast builds
+- **Compression**: Optimized assets and chunks
+
+### Environment Variables
+
+Create `.env.local` for local development:
+
+```env
+# Add environment variables here
+VITE_APP_TITLE="Evolution Stables"
+```
+
 - **State Management:** TanStack React Query
 - **Icons:** Lucide React
 
@@ -131,21 +197,6 @@ pnpm type-check
 
 # Bundle analysis
 pnpm build --mode analyze
-```
-
-## Quality & Dev Flow
-
-- **Lint:** `pnpm lint` (ESLint v9 flat config)
-- **Format:** `pnpm format` / check: `pnpm format:check`
-- **Pre-commit:** Husky + lint-staged runs Prettier/ESLint on staged files
-- **CI:** GitHub Actions runs install → lint → format check → build on PRs and pushes to `main`
-
-### Setup
-
-```bash
-cp .env.example .env.local
-pnpm install
-pnpm dev
 ```
 
 ## Quick Start for Developers

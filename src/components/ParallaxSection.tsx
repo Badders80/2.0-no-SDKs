@@ -15,14 +15,14 @@ export default function ParallaxSection({
 }: ParallaxSectionProps) {
   return (
     <section
-      className="w-full bg-fixed bg-center bg-cover flex items-center justify-center"
+      className='w-full bg-fixed bg-center bg-cover flex items-center justify-center'
       style={{
         backgroundImage: `url(${backgroundImage})`,
         height,
       }}
       aria-label={alt}
     >
-      <div className="z-10 text-white text-center px-4">{children}</div>
+      <div className='z-10 text-white text-center px-4'>{children}</div>
     </section>
   );
 }

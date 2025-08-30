@@ -8,7 +8,7 @@ import img from '../assets/hero-horses.png';
 export default function FinalImageSection() {
   return (
     <section
-      className="w-full h-[400px] md:h-[500px] bg-cover bg-center"
+      className='w-full h-[400px] md:h-[500px] bg-cover bg-center'
       style={{ backgroundImage: `url(${img})` }}
     ></section>
   );

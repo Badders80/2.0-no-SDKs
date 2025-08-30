@@ -17,7 +17,7 @@ const PoweredByTokinvest = () => (
     </span>
     <img
       src={tokinvestLogo}
-      alt="Tokinvest Logo"
+      alt='Tokinvest Logo'
       style={{ height: '48px', width: 'auto', display: 'inline-block' }}
     />
     <span

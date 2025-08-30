@@ -29,7 +29,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   if (hasError && !fallbackSrc) {
     return (
       <div className={`flex items-center justify-center bg-gray-200 ${className}`}>
-        <ImageIcon className="h-8 w-8 text-gray-400" />
+        <ImageIcon className='h-8 w-8 text-gray-400' />
       </div>
     );
   }

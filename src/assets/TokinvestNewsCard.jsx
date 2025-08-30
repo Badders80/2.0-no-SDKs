@@ -5,9 +5,9 @@ const cardImage =
 
 const TokinvestNewsCard = () => (
   <a
-    href="https://tokinvest.capital/insights-and-news/tokinvest-and-evolution-stables"
-    target="_blank"
-    rel="noopener noreferrer"
+    href='https://tokinvest.capital/insights-and-news/tokinvest-and-evolution-stables'
+    target='_blank'
+    rel='noopener noreferrer'
     style={{
       display: 'block',
       background: '#fff',
@@ -21,7 +21,7 @@ const TokinvestNewsCard = () => (
       margin: '0 auto',
       transition: 'box-shadow 0.2s',
     }}
-    className="tokinvest-news-card-clone"
+    className='tokinvest-news-card-clone'
   >
     <div
       style={{
@@ -37,7 +37,7 @@ const TokinvestNewsCard = () => (
     >
       <img
         src={cardImage}
-        alt="Tokinvest Appointed by Evolution Stables"
+        alt='Tokinvest Appointed by Evolution Stables'
         style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '18px 18px 0 0' }}
       />
     </div>

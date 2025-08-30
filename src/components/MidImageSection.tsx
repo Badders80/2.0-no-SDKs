@@ -8,10 +8,10 @@ import img from '../assets/hooves-transition.jpg';
 export default function MidImageSection() {
   return (
     <section
-      className="relative w-full h-[400px] md:h-[500px] bg-cover bg-center"
+      className='relative w-full h-[400px] md:h-[500px] bg-cover bg-center'
       style={{ backgroundImage: `url(${img})` }}
     >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className='absolute inset-0 bg-black opacity-50'></div>
     </section>
   );
 }

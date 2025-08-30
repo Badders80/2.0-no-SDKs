@@ -13,17 +13,17 @@ import midImage3 from '@/assets/horse-mid3.jpg';
 
 export default function LandingPage() {
   return (
-    <div className="bg-black text-white">
+    <div className='bg-black text-white'>
       <Hero />
 
       <SectionMission />
-      <ParallaxSection backgroundImage={midImage1} alt="Close-up horse motion" />
+      <ParallaxSection backgroundImage={midImage1} alt='Close-up horse motion' />
 
       <SectionAbout />
-      <ParallaxSection backgroundImage={midImage2} alt="Horse grazing on plain" />
+      <ParallaxSection backgroundImage={midImage2} alt='Horse grazing on plain' />
 
       <SectionInnovation />
-      <ParallaxSection backgroundImage={midImage3} alt="Horse hooves on soil" />
+      <ParallaxSection backgroundImage={midImage3} alt='Horse hooves on soil' />
 
       <SectionMyStable />
       <Footer />

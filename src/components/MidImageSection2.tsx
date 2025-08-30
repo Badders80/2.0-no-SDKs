@@ -8,12 +8,12 @@ import img from '../assets/racelegs.png';
  */
 export default function MidImageSection2() {
   return (
-    <section className="relative w-full h-[350px] md:h-[400px] overflow-hidden">
+    <section className='relative w-full h-[350px] md:h-[400px] overflow-hidden'>
       <div
-        className="absolute inset-0 bg-cover bg-center object-top"
+        className='absolute inset-0 bg-cover bg-center object-top'
         style={{ backgroundImage: `url(${img})` }}
       ></div>
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className='absolute inset-0 bg-black opacity-50'></div>
     </section>
   );
 }

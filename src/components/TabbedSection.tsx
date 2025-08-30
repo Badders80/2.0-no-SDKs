@@ -19,7 +19,7 @@ export default function TabbedSection({ tabs }: Props) {
   return (
     <div>
       {/* Tab headers */}
-      <div className="flex space-x-6 border-b border-gray-800 mb-6 overflow-x-auto">
+      <div className='flex space-x-6 border-b border-gray-800 mb-6 overflow-x-auto'>
         {tabs.map((tab, idx) => (
           <button
             key={tab.label}
@@ -36,9 +36,9 @@ export default function TabbedSection({ tabs }: Props) {
         ))}
       </div>
       {/* Tab content */}
-      <ul className="space-y-2 text-sm">
+      <ul className='space-y-2 text-sm'>
         {tabs[active].items.map(item => (
-          <li key={item} className="text-graytext">
+          <li key={item} className='text-graytext'>
             {item}
           </li>
         ))}
